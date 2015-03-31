@@ -41,10 +41,8 @@ define(templates,function (sectionsTpl, contentsTpl, folderTpl, mimeTypes) {
             $('a[href="#course/contents/' +courseId+ '"]').addClass('loading-row');
 
             var data = {
-            "options[0][name]" : "",
-            "options[0][value]" : ""
+                'courseid': courseId
             };
-            data.courseid = courseId;
 
             MM.moodleWSCall('core_course_get_contents', data, function(contents) {
                 // Removing loading icon.
@@ -54,16 +52,24 @@ define(templates,function (sectionsTpl, contentsTpl, folderTpl, mimeTypes) {
                 var tpl = {
                     sections: contents,
                     course: course.toJSON() // Convert a model to a plain javascript object.
-                }
+                };
                 var html = MM.tpl.render(MM.plugins.contents.templates.sections.html, tpl);
 
                 pageTitle = course.get("shortname");
 
                 MM.panels.show("center", html, {title: pageTitle});
                 if (MM.deviceType == "tablet" && contents.length > 0) {
-                    $("#panel-center li:eq(1)").addClass("selected-row");
                     // First section.
-                    MM.plugins.contents.viewCourseContentsSection(courseId, 0);
+                    var firstSection = 0;
+
+                    // Special case, frontpage. Avoid the rest of sections
+                    if (courseId == 1) {
+                        firstSection = -1;
+                        $("#panel-center li:eq(0)").addClass("selected-row");
+                    } else {
+                        $("#panel-center li:eq(1)").addClass("selected-row");
+                    }
+                    MM.plugins.contents.viewCourseContentsSection(courseId, firstSection);
                 }
             }, null, function(m) {
                 // Error callback.
@@ -85,10 +91,8 @@ define(templates,function (sectionsTpl, contentsTpl, folderTpl, mimeTypes) {
             var sectionName = "";
 
             var data = {
-            "options[0][name]" : "",
-            "options[0][value]" : ""
+                'courseid': courseId
             };
-            data.courseid = courseId;
 
             MM.moodleWSCall('core_course_get_contents', data, function(contents) {
                 var course = MM.db.get("courses", MM.config.current_site.id + "-" + courseId);
@@ -154,7 +158,7 @@ define(templates,function (sectionsTpl, contentsTpl, folderTpl, mimeTypes) {
                             }
 
                             if (!sections.modules[index2].webOnly) {
-                                if (c.contents) {
+                                if (c.contents && c.contents[0]) {
                                     var extension = MM.util.getFileExtension(c.contents[0].filename);
 
                                     if (c.contents.length == 1 || (content.modname == "resource" && extension != "html" && extension != "htm")) {
