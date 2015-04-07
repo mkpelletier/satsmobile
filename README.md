@@ -1,7 +1,7 @@
-Moodle Mobile
+MySats Mobile
 ============
 
-This is the primary repository of source code for the official Moodle Mobile app.
+This is the primary repository of source code for the official MySats Mobile app.
 
 User documentation: http://docs.moodle.org/en/Mobile_app
 

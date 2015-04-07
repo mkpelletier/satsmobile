@@ -1,5 +1,5 @@
 {
-"name": "Moodle Mobile",
+"name": "MySats Mobile",
 "license": {
     "name": "Apache 2.0",
     "link": "http://www.apache.org/licenses/LICENSE-2.0"
@@ -64,6 +64,17 @@
     "fullname": "Daniel Ramírez",
     "contribution": "Contributor (developer Window version)",
     "company": "CV&A Consulting"
+},
+{
+    "fullname": "Mathieu Pelletier",
+    "contribution": "Contributor (MySats Mobile maintainer)",
+    "company": "South African Theological Seminary"
+},
+    
+{
+    "fullname": "Marno Kirstein",
+    "contribution": "Contributor (MySats Mobile graphics customisations)",
+    "company": "South African Theological Seminary"
 }
 ],
 "thirdpartylibs": [
