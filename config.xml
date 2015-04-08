@@ -4,19 +4,20 @@
         xmlns:android = "http://schemas.android.com/apk/res/android"
         id        = "za.edu.sats.mysats_mobile"
         versionCode = "387"
-        version   = "1.13">
+        version   = "1.00">
     <name>MySats Mobile</name>
 
     <description>
         MySats Mobile official app
     </description>
-
-    <author href="http://moodle.com" email="juan@moodle.com">
-        Juan Leyva
+    
+    <!--NOTE that this app is largely the work of Juan Leyva, the Moodle Mobile Lead Developer, and his colleagues.  The credit for the vast majority of the program function belongs to these people.-->
+    <author href="http://my.sats.edu.za" email="mathieu@sats.edu.za">
+        Mathieu Pelletier
     </author>
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
-        <string>1.13</string>
+        <string>1.00</string>
     </gap:config-file>
 
     <preference name="phonegap-version" value="3.6.3" />
