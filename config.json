@@ -7,7 +7,7 @@
 "languages": {"en": "English", "fr" : "Français"},
 "plugins" : ["notifications", "messages", "upload", "events", "myfiles", "contents", "participants", "grades","addcontact", "addnote", "sendmessage", "forum", "label", "url", "page", "resource", "assign"],
 "wsservice" : "moodle_mobile_app",
-"wsextservice" : "local_mobile",
+"wsextservice" : "mysatsmobile",
 "presets" : {"url": "http://my.sats.edu.za", "username": ""},
 "sync_ws_on" : true,
 "sync_css_on" : true,
